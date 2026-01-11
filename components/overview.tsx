@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-import { MessageIcon } from "./icons";
-import { LogoPython } from "@/app/icons";
+import { MessageIcon } from './icons';
+import { LogoPython } from '@/app/icons';
 
 export const Overview = () => {
   return (
@@ -21,22 +21,22 @@ export const Overview = () => {
           <MessageIcon size={32} />
         </p>
         <p>
-          This is an{" "}
+          This is an{' '}
           <Link
             className="font-medium underline underline-offset-4"
             href="https://github.com/vercel-labs/ai-sdk-preview-python-streaming"
             target="_blank"
           >
             open source
-          </Link>{" "}
-          template that demonstrates the usage of{" "}
+          </Link>{' '}
+          template that demonstrates the usage of{' '}
           <Link
             className="font-medium underline underline-offset-4"
             href="https://sdk.vercel.ai/docs/ai-sdk-ui/stream-protocol#data-stream-protocol"
             target="_blank"
           >
             Data Stream Protocol
-          </Link>{" "}
+          </Link>{' '}
           to stream chat completions from a Python function (
           <Link
             className="font-medium underline underline-offset-4"
@@ -50,7 +50,7 @@ export const Overview = () => {
           on the client to create a seamless chat experience.
         </p>
         <p>
-          You can learn more about the AI SDK by visiting the{" "}
+          You can learn more about the AI SDK by visiting the{' '}
           <Link
             className="font-medium underline underline-offset-4"
             href="https://sdk.vercel.ai/docs"

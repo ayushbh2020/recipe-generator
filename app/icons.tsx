@@ -4,7 +4,7 @@ export const LogoPython = ({ size = 16 }: { size?: number }) => (
     strokeLinejoin="round"
     viewBox="0 0 16 16"
     width={size}
-    style={{ color: "currentcolor" }}
+    style={{ color: 'currentcolor' }}
   >
     <path
       d="M7.90474 0.00013087C7.24499 0.00316291 6.61494 0.0588153 6.06057 0.15584C4.42745 0.441207 4.13094 1.0385 4.13094 2.14002V3.59479H7.9902V4.07971H4.13094H2.68259C1.56099 4.07971 0.578874 4.7465 0.271682 6.01496C-0.0826597 7.4689 -0.0983767 8.37619 0.271682 9.89434C0.546012 11.0244 1.20115 11.8296 2.32276 11.8296H3.64966V10.0856C3.64966 8.82574 4.75179 7.71441 6.06057 7.71441H9.91533C10.9884 7.71441 11.845 6.84056 11.845 5.77472V2.14002C11.845 1.10556 10.9626 0.328487 9.91533 0.15584C9.25237 0.046687 8.56448 -0.00290121 7.90474 0.00013087ZM5.81768 1.17017C6.21631 1.17017 6.54185 1.49742 6.54185 1.89978C6.54185 2.30072 6.21631 2.62494 5.81768 2.62494C5.41761 2.62494 5.09351 2.30072 5.09351 1.89978C5.09351 1.49742 5.41761 1.17017 5.81768 1.17017Z"
@@ -47,7 +47,7 @@ export const LogoNext = () => (
     strokeLinejoin="round"
     viewBox="0 0 16 16"
     width={20}
-    style={{ color: "currentcolor" }}
+    style={{ color: 'currentcolor' }}
   >
     <g clipPath="url(#clip0_53_108)">
       <circle
@@ -112,7 +112,7 @@ export const MoonIcon = ({ size = 16 }: { size?: number }) => {
       strokeLinejoin="round"
       viewBox="0 0 16 16"
       width={size}
-      style={{ color: "currentcolor" }}
+      style={{ color: 'currentcolor' }}
     >
       <g clip-path="url(#clip0_174_19363)">
         <path
@@ -138,7 +138,7 @@ export const SunIcon = ({ size = 16 }: { size?: number }) => {
       stroke-linejoin="round"
       viewBox="0 0 16 16"
       width={size}
-      style={{ color: "currentcolor" }}
+      style={{ color: 'currentcolor' }}
     >
       <path
         fillRule="evenodd"
