@@ -1,40 +1,45 @@
-"use client";
+'use client';
 
-import type { CreateUIMessage, UIMessage, UseChatHelpers, UseChatOptions } from "@ai-sdk/react";
+import type {
+  CreateUIMessage,
+  UIMessage,
+  UseChatHelpers,
+  UseChatOptions,
+} from '@ai-sdk/react';
 
 type ChatRequestOptions = {
   headers?: Record<string, string> | Headers;
   body?: object;
   data?: any;
 };
-import { motion } from "framer-motion";
-import type React from "react";
+import { motion } from 'framer-motion';
+import type React from 'react';
 import {
   useRef,
   useEffect,
   useCallback,
   type Dispatch,
   type SetStateAction,
-} from "react";
-import { toast } from "sonner";
-import { useLocalStorage, useWindowSize } from "usehooks-ts";
+} from 'react';
+import { toast } from 'sonner';
+import { useLocalStorage, useWindowSize } from 'usehooks-ts';
 
-import { cn, sanitizeUIMessages } from "@/lib/utils";
+import { cn, sanitizeUIMessages } from '@/lib/utils';
 
-import { ArrowUpIcon, StopIcon } from "./icons";
-import { Button } from "./ui/button";
-import { Textarea } from "./ui/textarea";
+import { ArrowUpIcon, StopIcon } from './icons';
+import { Button } from './ui/button';
+import { Textarea } from './ui/textarea';
 
 const suggestedActions = [
   {
-    title: "What is the weather",
-    label: "in San Francisco?",
-    action: "What is the weather in San Francisco?",
+    title: 'What is the weather',
+    label: 'in San Francisco?',
+    action: 'What is the weather in San Francisco?',
   },
   {
-    title: "How is python useful",
-    label: "for AI engineers?",
-    action: "How is python useful for AI engineers?",
+    title: 'How is python useful',
+    label: 'for AI engineers?',
+    action: 'How is python useful for AI engineers?',
   },
 ];
 
@@ -57,7 +62,7 @@ export function MultimodalInput({
   stop: () => void;
   messages: Array<UIMessage>;
   setMessages: Dispatch<SetStateAction<Array<UIMessage>>>;
-  sendMessage: UseChatHelpers<UIMessage>['sendMessage']
+  sendMessage: UseChatHelpers<UIMessage>['sendMessage'];
   handleSubmit: (
     event?: {
       preventDefault?: () => void;
@@ -77,7 +82,7 @@ export function MultimodalInput({
 
   const adjustHeight = () => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = 'auto';
       textareaRef.current.style.height = `${
         textareaRef.current.scrollHeight + 2
       }px`;
@@ -85,15 +90,15 @@ export function MultimodalInput({
   };
 
   const [localStorageInput, setLocalStorageInput] = useLocalStorage(
-    "input",
-    ""
+    'input',
+    ''
   );
 
   useEffect(() => {
     if (textareaRef.current) {
       const domValue = textareaRef.current.value;
       // Prefer DOM value over localStorage to handle hydration
-      const finalValue = domValue || localStorageInput || "";
+      const finalValue = domValue || localStorageInput || '';
       setInput(finalValue);
       adjustHeight();
     }
@@ -112,7 +117,7 @@ export function MultimodalInput({
 
   const submitForm = useCallback(() => {
     handleSubmit(undefined, {});
-    setLocalStorageInput("");
+    setLocalStorageInput('');
 
     if (width && width > 768) {
       textareaRef.current?.focus();
@@ -130,16 +135,16 @@ export function MultimodalInput({
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.05 * index }}
               key={`suggested-action-${suggestedAction.title}-${index}`}
-              className={index > 1 ? "hidden sm:block" : "block"}
+              className={index > 1 ? 'hidden sm:block' : 'block'}
             >
               <Button
                 variant="ghost"
                 onClick={async () => {
                   sendMessage({
-                    role: "user",
+                    role: 'user',
                     parts: [
                       {
-                        type: "text",
+                        type: 'text',
                         text: suggestedAction.action,
                       },
                     ],
@@ -160,20 +165,20 @@ export function MultimodalInput({
       <Textarea
         ref={textareaRef}
         placeholder="Send a message..."
-        value={input || ""}
+        value={input || ''}
         onChange={handleInput}
         className={cn(
-          "min-h-[24px] max-h-[calc(75dvh)] overflow-hidden resize-none rounded-xl !text-base bg-muted",
+          'min-h-[24px] max-h-[calc(75dvh)] overflow-hidden resize-none rounded-xl !text-base bg-muted',
           className
         )}
         rows={3}
         autoFocus
         onKeyDown={(event) => {
-          if (event.key === "Enter" && !event.shiftKey) {
+          if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
 
             if (isLoading) {
-              toast.error("Please wait for the model to finish its response!");
+              toast.error('Please wait for the model to finish its response!');
             } else {
               submitForm();
             }

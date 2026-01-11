@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { PreviewMessage, ThinkingMessage } from "@/components/message";
-import { MultimodalInput } from "@/components/multimodal-input";
-import { Overview } from "@/components/overview";
-import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
-import { useChat, type CreateUIMessage, type UIMessage } from "@ai-sdk/react";
-import { toast } from "sonner";
-import React from "react";
+import { PreviewMessage, ThinkingMessage } from '@/components/message';
+import { MultimodalInput } from '@/components/multimodal-input';
+import { Overview } from '@/components/overview';
+import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
+import { useChat, type CreateUIMessage, type UIMessage } from '@ai-sdk/react';
+import { toast } from 'sonner';
+import React from 'react';
 
 export function Chat() {
-  const chatId = "001";
+  const chatId = '001';
 
   const { messages, setMessages, sendMessage, status, stop } = useChat({
     id: chatId,
     onError: (error: Error) => {
-      if (error.message.includes("Too many requests")) {
+      if (error.message.includes('Too many requests')) {
         toast.error(
-          "You are sending too many messages. Please try again later."
+          'You are sending too many messages. Please try again later.'
         );
       }
     },
@@ -25,15 +25,15 @@ export function Chat() {
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
 
-  const [input, setInput] = React.useState("");
+  const [input, setInput] = React.useState('');
 
-  const isLoading = status === "submitted" || status === "streaming";
+  const isLoading = status === 'submitted' || status === 'streaming';
 
   const handleSubmit = (event?: { preventDefault?: () => void }) => {
     event?.preventDefault?.();
     if (input.trim()) {
       sendMessage({ text: input });
-      setInput("");
+      setInput('');
     }
   };
 
@@ -56,7 +56,7 @@ export function Chat() {
 
         {isLoading &&
           messages.length > 0 &&
-          messages[messages.length - 1].role === "user" && <ThinkingMessage />}
+          messages[messages.length - 1].role === 'user' && <ThinkingMessage />}
 
         <div
           ref={messagesEndRef}

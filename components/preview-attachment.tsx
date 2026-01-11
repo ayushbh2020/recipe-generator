@@ -1,6 +1,6 @@
-import type { FileUIPart } from "ai";
+import type { FileUIPart } from 'ai';
 
-import { LoaderIcon } from "./icons";
+import { LoaderIcon } from './icons';
 
 export const PreviewAttachment = ({
   attachment,
@@ -10,13 +10,13 @@ export const PreviewAttachment = ({
   isUploading?: boolean;
 }) => {
   const { filename, url, mediaType } = attachment;
-  const displayName = filename ?? "Attachment";
+  const displayName = filename ?? 'Attachment';
 
   return (
     <div className="flex flex-col gap-2">
       <div className="w-20 aspect-video bg-muted rounded-md relative flex flex-col items-center justify-center">
         {mediaType ? (
-          mediaType.startsWith("image") ? (
+          mediaType.startsWith('image') ? (
             // NOTE: it is recommended to use next/image for images
             // eslint-disable-next-line @next/next/no-img-element
             <img
