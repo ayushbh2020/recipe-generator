@@ -2,16 +2,16 @@ import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
 import { cn } from '@/lib/utils';
-import { Navbar } from '@/components/navbar';
+import { AuthProvider } from '@/lib/contexts/auth-context';
 
 export const metadata = {
-  title: 'AI SDK Python Streaming Preview',
+  title: 'Meal Planner - AI-Powered Meal Prep',
   description:
-    'Use the Data Stream Protocol to stream chat completions from a Python endpoint (FastAPI) and display them using the useChat hook in your Next.js application.',
+    'Plan your weekly meals with AI-generated recipes optimized for batch cooking and meal prep.',
   openGraph: {
     images: [
       {
-        url: '/og?title=AI SDK Python Streaming Preview',
+        url: '/og?title=Meal Planner',
       },
     ],
   },
@@ -19,7 +19,7 @@ export const metadata = {
     card: 'summary_large_image',
     images: [
       {
-        url: '/og?title=AI SDK Python Streaming Preview',
+        url: '/og?title=Meal Planner',
       },
     ],
   },
@@ -35,8 +35,7 @@ export default function RootLayout({
       <head></head>
       <body className={cn(GeistSans.className, 'antialiased dark')}>
         <Toaster position="top-center" richColors />
-        <Navbar />
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
