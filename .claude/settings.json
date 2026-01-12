@@ -23,7 +23,7 @@
         ]
       }
     ],
-    "Stop": [
+    "Notification": [
       {
         "hooks": [
           {
