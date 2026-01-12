@@ -27,11 +27,24 @@ pnpm build
 
 # Lint
 pnpm lint
+
+# Type-check the codebase without emitting files
+npx tsc --noEmit
 ```
 
 ## Environment Setup
 
 Create a `.env` file based on `.env.local` format. The API uses Vercel OIDC for authentication with OpenAI via the Vercel AI Gateway (`https://ai-gateway.vercel.sh/v1`).
+
+## Skills
+
+When @.claude/skills is mentioned or when starting a task:
+
+1. Read .claude/skills/CLAUDE.md
+2. Scan the index for relevant skills
+3. Mention which skills you're referencing
+4. Note any deviations from the skill pattern and why
+5. Suggest new skills when you see repeated patterns (use `.claude/commands/create-skill.md` to create a new skill)
 
 ## Architecture
 
